@@ -10,6 +10,7 @@ import '../styles/headings.css';
 import { LoginModule } from './login/login.module';
 import { ProductDetailsModule } from './product-details/product-details.module';
 import { SharedModule } from './shared/shared.module';
+import { MyAuthService } from './core/my-auth.service';
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -34,7 +35,7 @@ import { SharedModule } from './shared/shared.module';
    * Expose our Services and Providers into Angular's dependency injection.
    */
   providers: [
-
+    MyAuthService
   ]
 })
 export class AppModule {

@@ -3,10 +3,14 @@
     <div class="col-md-12">
       <div class="wrapper-sing-up">
         <h2 class="title">Sing up</h2>
-        <div class="form-sing-up example-form">
-
+        <form novalidate class="form-sing-up example-form"
+             [formGroup]="formSignUp"
+             #registration="ngForm"
+             (submit)="signUpUser($event, formSignUp.value, registration.valid);"
+        >
+<!--(click)="activateCanDeactivated()"-->
             <md-input-container class="example-full-width">
-              <input mdInput placeholder="Email">
+              <input mdInput placeholder="User name" formControlName="name">
             <!--  <md-error *ngIf="">
                 Please enter a valid email address
               </md-error>
@@ -15,7 +19,7 @@
               </md-error>-->
             </md-input-container>
           <md-input-container class="example-full-width">
-            <input mdInput placeholder="Password">
+            <input mdInput placeholder="Password" formControlName="password">
             <!--  <md-error *ngIf="">
                 Please enter a valid email address
               </md-error>
@@ -24,7 +28,7 @@
               </md-error>-->
           </md-input-container>
           <md-input-container class="example-full-width">
-            <input mdInput placeholder="Confirm password">
+            <input mdInput placeholder="Confirm password" formControlName="confirmPassword">
             <!--  <md-error *ngIf="">
                 Please enter a valid email address
               </md-error>
@@ -33,10 +37,13 @@
               </md-error>-->
           </md-input-container>
           <div class="btn-group">
-            <button md-raised-button>Sign Up</button>
+            <button type="submit" md-raised-button>Sign Up</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
+
+
+
