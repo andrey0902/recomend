@@ -3,9 +3,13 @@
     <div class="col-md-12">
       <div class="wrapper-sing-up">
         <h2 class="title">Sing in</h2>
-        <div class="form-sing-up example-form">
+        <form class="form-sing-up example-form"
+             [formGroup]="formSignIn"
+             #SignIn="ngForm"
+             (submit)="signInUser($event, formSignIn.value, SignIn.valid);"
+        >
           <md-input-container class="example-full-width">
-            <input mdInput placeholder="Email">
+            <input mdInput placeholder="User name" formControlName="name">
             <!--  <md-error *ngIf="">
                 Please enter a valid email address
               </md-error>
@@ -14,7 +18,7 @@
               </md-error>-->
           </md-input-container>
           <md-input-container class="example-full-width">
-            <input mdInput placeholder="Password">
+            <input mdInput placeholder="Password" formControlName="password">
             <!--  <md-error *ngIf="">
                 Please enter a valid email address
               </md-error>
@@ -23,9 +27,9 @@
               </md-error>-->
           </md-input-container>
           <div class="btn-group">
-            <button md-raised-button>Sign in</button>
+            <button type="submit" md-raised-button>Sign in</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>

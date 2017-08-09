@@ -16,3 +16,27 @@
 .link.active{
   color: #5d5d5d;
 }
+.user-block-icons{
+  display: flex;
+  i {
+    margin-left: 10px;
+    color: #4a4a4a;
+  }
+}
+.user-name{
+  margin-left: 10px;
+  margin-top: 2px;
+  font-weight:bold;
+  color: #f2f2f2;
+  &>span {
+    color: #4a4a4a;
+  }
+
+}
+i.logOut{
+  transition: .3s;
+}
+i.logOut:hover{
+  cursor: pointer;
+  color: #24292e;
+}

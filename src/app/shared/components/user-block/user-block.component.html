@@ -7,16 +7,16 @@
     >Sign in</a>
     or
     <a class="link"
-      routerLink="/sign-up"
+       routerLink="/sign-up"
        routerLinkActive="active"
     >Sign up</a>
   </div>
-  <div class="user-block" *ngIf="userData">
-    <md-icon><i class="material-icons">&#xE8A6;</i></md-icon>
 
-    {{'user'}}
+  <div class="user-block-icons" *ngIf="userData">
+    <i class="material-icons">&#xE8A6;</i>
+    <span class="user-name"><span>User: </span> {{userData}}</span>
 
-    <i class="material-icons">exit_to_app</i>
+    <i class="material-icons logOut" (click)="logOut()">exit_to_app</i>
   </div>
 
 

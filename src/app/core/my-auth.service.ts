@@ -20,15 +20,17 @@ export class MyAuthService {
         return res.json();
       });
   }
-  public signInUser(data) {
-    this.http.post(settings.defaultHttp + 'api/login/', data)
+  public signInUser(data): Observable<any> {
+   return this.http.post(settings.defaultHttp + 'api/login/', data)
       .map((res) => {
         console.log(res.json());
+        return res.json();
       });
   }
-  public logOut() {
-    this.storageService.setStorage('token', null);
-    this.storageService.setStorage('userData', null);
-    this.router.navigate(['/']);
+  public logOut(data) {
+    return this.http.post(settings.defaultHttp + 'logout', data).map((res) => {
+      console.log(res.json());
+      return res.json();
+    });
   }
 }

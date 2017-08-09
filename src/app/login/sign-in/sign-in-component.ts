@@ -2,10 +2,44 @@
  * Created by andrei on 08.08.2017.
  */
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MyAuthService } from '../../core/my-auth.service';
+import { StorageService } from '../../shared/services/storage.service';
+import { UserModel } from '../../shared/models/user.model';
 
 @Component({
   selector: 'sign-in-app',
   templateUrl: 'sign-in-component.html',
   styleUrls: ['sign-in-component.scss']
 })
-export class SignInComponent {}
+export class SignInComponent {
+  public formSignIn: FormGroup;
+  constructor(
+    private router: Router,
+    private myAuthService: MyAuthService,
+    private storageService: StorageService
+  ) {
+    this.formSignIn = new FormGroup({
+      name: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required])
+    });
+  }
+  public signInUser($event, data, valid) {
+    $event.preventDefault();
+    let userData: UserModel;
+    if (valid) {
+      userData = new UserModel(data.name, data.password);
+      this.myAuthService.signInUser(userData).subscribe((res) => {
+        console.log(res);
+        if (res.success) {
+          this.storageService.setStorage('userData', userData.username);
+          this.storageService.setStorage('token', res.token);
+          this.router.navigate(['/']);
+        }
+      });
+      console.log($event, data, valid, userData);
+    }
+    console.log($event, data, valid);
+  }
+}
