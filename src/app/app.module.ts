@@ -8,6 +8,7 @@ import { HomeModule } from './home/home.module';
 import '../styles/styles.scss';
 import '../styles/headings.css';
 import { LoginModule } from './login/login.module';
+import { ProductDetailsModule } from './product-details/product-details.module';
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -24,6 +25,7 @@ import { LoginModule } from './login/login.module';
     BrowserModule,
     HomeModule, /*импортируется первее чем AppRouterModule потому что с Home все начнется*/
     LoginModule,
+    ProductDetailsModule,
     AppRouterModule,
   ],
   /**

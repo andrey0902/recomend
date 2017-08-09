@@ -10,10 +10,15 @@ import { HomeComponent } from './home.component';
 import { GetDataService } from './shared/get-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule, MdCheckboxModule, MdCardModule } from '@angular/material';
+import { ProductItemComponent } from './product-item/product-item.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
+    CommonModule,
     HomeRouterModule,
+    SharedModule,
     BrowserAnimationsModule,
     MdButtonModule,
     MdCheckboxModule,
@@ -22,7 +27,9 @@ import { MdButtonModule, MdCheckboxModule, MdCardModule } from '@angular/materia
   ],
   exports: [],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    ProductListComponent,
+    ProductItemComponent
   ],
   providers: [
     GetDataService

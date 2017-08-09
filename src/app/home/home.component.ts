@@ -9,14 +9,5 @@ import { GetDataService } from './shared/get-data.service';
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  constructor(private service: GetDataService) {}
-  public ngOnInit() {
-    this.getData();
-  }
-  public getData() {
-    this.service.getListProduct().subscribe((response) => {
-      console.log(response);
-    });
-  }
+export class HomeComponent {
 }

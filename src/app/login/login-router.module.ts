@@ -11,18 +11,6 @@ import { SignUpComponent } from './sign-up/sign-up-component';
 @NgModule({
   imports: [
     RouterModule.forChild([
-/*      {
-        path: 'test',
-        component: LoginComponent
-      },
-      {
-        path: 'sign-in',
-        component: SignInComponent
-      },
-      {
-        path: 'sign-up',
-        component: SignUpComponent
-      }*/
 {
       path: 'sign-up',
       pathMatch: 'full',
@@ -50,4 +38,4 @@ import { SignUpComponent } from './sign-up/sign-up-component';
   exports: [RouterModule]
 })
 export class LoginRouterModule {}
-console.log(1);
+
