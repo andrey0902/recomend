@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule, MdCheckboxModule, MdCardModule,  MdIconModule } from '@angular/material';
 import { UserBlockComponent } from './components/user-block/user-block.component';
 import { StorageService } from './services/storage.service';
+import { GetDataService } from './services/get-data.service';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { StorageService } from './services/storage.service';
     UserBlockComponent,
   ],
   providers: [
-    StorageService
+    StorageService,
+    GetDataService
   ],
 })
 export class SharedModule {

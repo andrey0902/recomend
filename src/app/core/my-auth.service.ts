@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Router } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 
 import { StorageService } from '../shared/services/storage.service';
 import { settings } from './settings';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class MyAuthService {
+export class MyAuthService implements CanActivate{
   constructor(
     private http: Http,
     private storageService: StorageService,
@@ -32,5 +32,9 @@ export class MyAuthService {
       console.log(res.json());
       return res.json();
     });
+  }
+  public canActivate() {
+    //tslint:disable
+     return !!this.storageService.getStorage('token');
   }
 }
