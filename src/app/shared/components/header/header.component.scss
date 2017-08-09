@@ -1,0 +1,28 @@
+.header{
+/*  height: 60px;*/
+  background: #00bcd4;
+}
+.wrapper-logo{
+  height: 60px;
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-start;
+}
+.wrapper-nav{
+  height: 60px;
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+}
+.mat-icon.material-icons{
+  color: red;
+}
+.logo img{
+  height: 60px;
+  order: 1;
+}
+.user-block{
+  order: 2;
+}

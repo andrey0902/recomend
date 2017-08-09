@@ -1,0 +1,23 @@
+<div class="user-block">
+
+  <div class="user-nav-link" *ngIf="!userData">
+    <a class="link"
+       routerLink="/sign-in"
+       routerLinkActive="active"
+    >Sign in</a>
+    or
+    <a class="link"
+      routerLink="/sign-up"
+       routerLinkActive="active"
+    >Sign up</a>
+  </div>
+  <div class="user-block" *ngIf="userData">
+    <md-icon><i class="material-icons">&#xE8A6;</i></md-icon>
+
+    {{'user'}}
+
+    <i class="material-icons">exit_to_app</i>
+  </div>
+
+
+</div>

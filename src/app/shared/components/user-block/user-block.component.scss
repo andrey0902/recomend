@@ -1,0 +1,18 @@
+.user-nav-link{
+  color: #24292e;
+}
+.link, .link:active, .link:focus{
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  color: #fff;
+  margin: 5px 8px 0;
+  text-decoration: none;
+  transition: .3s;
+}
+.link:hover{
+  color: #5d5d5d;
+}
+.link.active{
+  color: #5d5d5d;
+}

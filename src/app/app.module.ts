@@ -9,6 +9,7 @@ import '../styles/styles.scss';
 import '../styles/headings.css';
 import { LoginModule } from './login/login.module';
 import { ProductDetailsModule } from './product-details/product-details.module';
+import { SharedModule } from './shared/shared.module';
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -23,6 +24,7 @@ import { ProductDetailsModule } from './product-details/product-details.module';
    */
   imports: [
     BrowserModule,
+    SharedModule,
     HomeModule, /*импортируется первее чем AppRouterModule потому что с Home все начнется*/
     LoginModule,
     ProductDetailsModule,
