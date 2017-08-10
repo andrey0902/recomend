@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCheckboxModule, MdCardModule,  MdIconModule } from '@angular/material';
+import { MdIconModule } from '@angular/material';
 import { UserBlockComponent } from './components/user-block/user-block.component';
 import { StorageService } from './services/storage.service';
 import { GetDataService } from './services/get-data.service';
 import { UserStateService } from './services/user-state.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -20,10 +21,12 @@ import { UserStateService } from './services/user-state.service';
   exports: [
     HeaderComponent,
     UserBlockComponent,
+    FooterComponent,
   ],
   declarations: [
     HeaderComponent,
     UserBlockComponent,
+    FooterComponent,
   ],
   providers: [
     StorageService,

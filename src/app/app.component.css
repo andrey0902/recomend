@@ -6,3 +6,11 @@ html, body{
 a.active {
   background-color: gray;
 }
+footer {
+  position: fixed;
+  bottom: 0;
+  width:100%;
+}
+router-outlet{
+  height: 0;
+}

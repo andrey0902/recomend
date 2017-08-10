@@ -10,7 +10,8 @@ import { MyAuthService } from '../core/my-auth.service';
         {
           path: 'product/:id',
           component: ProductDetailsComponent,
-          canActivate: [MyAuthService]
+          canActivate: [MyAuthService],
+          resolve: {}
         },
    ])
  ],
