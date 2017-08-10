@@ -44,10 +44,12 @@ import { LoginRouterModule } from './login-router.module';
 import { LoginComponent } from './login.component';
 import { SignUpComponent } from './sign-up/sign-up-component';
 import { SignInComponent } from './sign-in/sign-in-component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MdAutocompleteModule,

@@ -5,12 +5,14 @@ import { CanActivate, Router } from '@angular/router';
 import { StorageService } from '../shared/services/storage.service';
 import { settings } from './settings';
 import { Observable } from 'rxjs/Observable';
+import { SessionService } from './session.service';
 
 @Injectable()
 export class MyAuthService implements CanActivate{
   constructor(
     private http: Http,
     private storageService: StorageService,
+    private sessionService: SessionService,
     private router: Router) {
   }
   public signUpUser(data): Observable<any> {
@@ -27,14 +29,15 @@ export class MyAuthService implements CanActivate{
         return res.json();
       });
   }
-  public logOut(data) {
-    return this.http.post(settings.defaultHttp + 'logout', data).map((res) => {
-      console.log(res.json());
-      return res.json();
+  public logOut() {
+    return this.http.get(settings.defaultHttp + 'logout/', '').map(() => {
+      this.storageService.setStorage('userData', null);
+      this.sessionService.token = null;
+      this.router.navigate(['/']);
     });
   }
   public canActivate() {
     //tslint:disable
-     return !!this.storageService.getStorage('token');
+     return !!this.sessionService.token;
   }
 }

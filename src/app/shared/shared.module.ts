@@ -8,6 +8,7 @@ import { MdButtonModule, MdCheckboxModule, MdCardModule,  MdIconModule } from '@
 import { UserBlockComponent } from './components/user-block/user-block.component';
 import { StorageService } from './services/storage.service';
 import { GetDataService } from './services/get-data.service';
+import { UserStateService } from './services/user-state.service';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { GetDataService } from './services/get-data.service';
   ],
   providers: [
     StorageService,
-    GetDataService
+    GetDataService,
+    UserStateService
   ],
 })
 export class SharedModule {

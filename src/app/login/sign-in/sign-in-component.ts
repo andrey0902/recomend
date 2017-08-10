@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MyAuthService } from '../../core/my-auth.service';
 import { StorageService } from '../../shared/services/storage.service';
 import { UserModel } from '../../shared/models/user.model';
+import { UserStateService } from '../../shared/services/user-state.service';
 
 @Component({
   selector: 'sign-in-app',
@@ -18,7 +19,8 @@ export class SignInComponent {
   constructor(
     private router: Router,
     private myAuthService: MyAuthService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private userStateService: UserStateService,
   ) {
     this.formSignIn = new FormGroup({
       name: new FormControl(null, [Validators.required]),
@@ -35,6 +37,7 @@ export class SignInComponent {
         if (res.success) {
           this.storageService.setStorage('userData', userData.username);
           this.storageService.setStorage('token', res.token);
+          this.userStateService.state = 'ddd';
           this.router.navigate(['/']);
         }
       });

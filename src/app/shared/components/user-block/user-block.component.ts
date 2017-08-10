@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { StorageService } from '../../services/storage.service';
 import { MyAuthService } from '../../../core/my-auth.service';
-import { Router } from '@angular/router';
+import { UserStateService } from '../../services/user-state.service';
 
 @Component({
   selector: 'user-block-component-app',
@@ -9,22 +9,33 @@ import { Router } from '@angular/router';
   styleUrls: ['user-block.component.scss']
 })
 
-export class UserBlockComponent implements OnInit {
+export class UserBlockComponent implements OnInit, OnDestroy {
   public userData: any;
-  constructor(
-    private serviceStorage: StorageService,
-    private myAuthservice: MyAuthService,
-    private router: Router) {
+
+  constructor(private serviceStorage: StorageService,
+              private myAuthservice: MyAuthService,
+              private userStateService: UserStateService) {
   }
 
   public ngOnInit() {
-    this.userData = this.serviceStorage.getStorage('userData');
-    console.log(this.userData, 5555);
-  }
-  public logOut() {
-    this.myAuthservice.logOut('a').subscribe((res) => {
-      console.log(res);
+    this.getUserData();
+    this.userStateService.state.subscribe(() => {
+      this.getUserData();
     });
-    console.log('a');
   }
+
+  public logOut() {
+    this.myAuthservice.logOut().subscribe(() => {
+      this.getUserData();
+    });
+  }
+
+  public ngOnDestroy() {
+    this.userStateService.state.unsubscribe();
+  }
+
+  private getUserData() {
+    this.userData = this.serviceStorage.getStorage('userData');
+  }
+
 }

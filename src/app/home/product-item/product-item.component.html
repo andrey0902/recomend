@@ -11,7 +11,7 @@
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button>LIKE</button>
-    <button md-button><a [routerLink]="['/product', item.id]" routerLinkActive="active">more...</a></button>
+<!--    <button md-button>LIKE</button>-->
+    <button [routerLink]="['/product', item.id]" routerLinkActive="active" md-button>more...</button>
   </md-card-actions>
 </md-card>

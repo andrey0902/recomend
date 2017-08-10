@@ -1,0 +1,12 @@
+.items-wrapper{
+  display: flex;
+  flex-flow: row wrap;
+}
+.item{
+  margin: 20px 10px 0;
+  width: calc(25% - 20px);
+
+}
+product-item-app{
+  height: 360px;
+}
