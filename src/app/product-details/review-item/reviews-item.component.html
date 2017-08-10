@@ -5,7 +5,14 @@
     <img class="user" [src]="'../../../assets/icon/' + (review.rate < 3 ? 'crying.png': 'happy .png')" alt="">
   </span> {{review.userName}} at {{review.date | date}}
     </p>
-    <p>Rate: {{review.rate}}</p>
+    <p>Rate:
+
+      <ngb-rating readonly="true" [(rate)]="currentRate" max='5' >
+        <ng-template let-fill="fill">
+          <span class="star" [class.filled]="fill === 100">&#9733;</span>
+        </ng-template>
+      </ngb-rating>
+      </p>
     <p>Description: {{review.text}}</p>
   </div>
 </md-card>

@@ -5,7 +5,7 @@ import { Http, HttpModule, RequestOptionsArgs, XHRBackend, RequestOptions } from
 import { AppRouterModule } from './app-router.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import '../styles/styles.scss';
 import '../styles/headings.css';
 import { LoginModule } from './login/login.module';
@@ -28,6 +28,7 @@ import { SessionService } from './core/session.service';
    */
   imports: [
     BrowserModule,
+    NgbModule.forRoot(),
     SharedModule,
     HomeModule, /*импортируется первее чем AppRouterModule потому что с Home все начнется*/
     LoginModule,

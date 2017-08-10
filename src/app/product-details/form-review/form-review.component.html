@@ -2,10 +2,17 @@
   <div class="wrapper">
     <p>
   <span md-list-icon>
-    <img class="user" src="../../../assets/icon/happy.png" alt="">
-  </span> a;slkdfjsl;kadf alsdkfjal;sdkf
+    <img class="user" [src]="'../../../assets/icon/'+ (currentRate < 3 ? 'crying.png': 'happy .png')" alt="">
+  </span> your rating
     </p>
-    <p>Rate: 55</p>
+    <ngb-rating [(rate)]="currentRate" max='5' (click)="test(currentRate)">
+      <ng-template let-fill="fill">
+        <span class="star" [class.filled]="fill === 100">&#9733;</span>
+      </ng-template>
+    </ngb-rating>
+    <hr>
+    <pre>Rate: <b>{{(currentRate)}}</b></pre>
     <p>Description: 'asdfasdf'</p>
+
   </div>
 </md-card>

@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class FormReviewComponent implements OnInit {
+  public currentRate: number = 0;
   constructor() {
   }
-
+  public test(a) {
+    console.log(a);
+  }
   ngOnInit() {
   }
 }

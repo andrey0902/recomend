@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NameComponent } from './name.component';
 import { ProductDetailsRouterModule } from './product-details-router.module';
 import { ProductDetailsComponent } from './product-details.component';
@@ -15,6 +17,9 @@ import { MdCardModule } from '@angular/material';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule,
     BrowserAnimationsModule,
     MdCardModule,
     ProductDetailsRouterModule
