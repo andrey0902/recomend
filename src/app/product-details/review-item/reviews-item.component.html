@@ -1,1 +1,11 @@
-item review
+<md-card>
+  <div class="wrapper">
+    <p>
+  <span md-list-icon>
+    <img class="user" [src]="'../../../assets/icon/' + (review.rate < 3 ? 'crying.png': 'happy .png')" alt="">
+  </span> {{review.userName}} at {{review.date | date}}
+    </p>
+    <p>Rate: {{review.rate}}</p>
+    <p>Description: {{review.text}}</p>
+  </div>
+</md-card>

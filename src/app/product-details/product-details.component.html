@@ -1,8 +1,11 @@
-<div class="container">
+<div class="container margin-bottom">
   <div class="row">
-    <div class="col-md-12">
-      <h2>detail</h2>
+    <div class="col-md-8">
       <description-component-app [product]="productData.product"></description-component-app>
+    </div>
+    <div class="col-md-4">
+      <form-review-app></form-review-app>
+      <reviews-list-app [reviews]="productData.reviews"></reviews-list-app>
     </div>
   </div>
 </div>
