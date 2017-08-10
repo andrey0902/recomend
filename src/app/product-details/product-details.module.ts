@@ -5,6 +5,7 @@ import { NameComponent } from './name.component';
 import { ProductDetailsRouterModule } from './product-details-router.module';
 import { ProductDetailsComponent } from './product-details.component';
 import { DescriptionComponent } from './description/description.component';
+import { ProductDetailResolveService } from './description/shared/product-detail-resolve.service';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { DescriptionComponent } from './description/description.component';
     ProductDetailsComponent,
     DescriptionComponent,
   ],
-  providers: [],
+  providers: [ProductDetailResolveService],
 })
 export class ProductDetailsModule {
 }

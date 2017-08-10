@@ -8,17 +8,17 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Product } from '../models/product.model';
 import { settings } from '../../core/settings';
+import 'rxjs/add/operator/mergeMap';
+import { ReviewModel } from '../models/review.model';
 
 @Injectable()
 export class GetDataService {
   constructor(private http: Http) {
   }
 
-  public getListProduct(): Observable<Product[]> {
-    let header = new RequestOptions({
-      headers: new Headers({})
-    });
-    return this.http.get(`${settings.defaultHttp}api/products/`, header)
+  public getListProduct(): Observable<Product[]> | any {
+
+    return this.http.get(`${settings.defaultHttp}api/products/`, {})
       .map((response) => {
         let res: [any] = response.json();
         let result: Product[] = [];
@@ -28,6 +28,44 @@ export class GetDataService {
           result.push(a);
         });
         return result;
+      });
+  }
+
+  public getProduct(id) {
+    return this.http.get(`${settings.defaultHttp}api/products/`, {})
+      .map((res) => {
+        let result = res.json();
+        for (let obj of result) {
+          if (+obj.id === +id) {
+            return obj;
+          }
+        }
+      })
+      .flatMap((product) => {
+        return this.getReviews(product.id).map((res) => {
+          return {
+            product,
+            reviews: res
+          };
+        });
+      });
+  }
+
+  public getReviews(id: number) {
+    return this.http.get(`${settings.defaultHttp}/api/reviews/${id}`, {})
+      .map((elem) => {
+        let result = elem.json();
+        let reviews: ReviewModel[] = [];
+        if (result) {
+          for (let obj of result) {
+            reviews.push(new ReviewModel(
+              obj.created_at,
+              obj.created_by.username,
+              obj.rate,
+              obj.text));
+          }
+        }
+        return reviews;
       });
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from '../../shared/models/product.model';
 
 @Component({
   selector: 'description-component-app',
@@ -6,10 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['description.component.scss']
 })
 
-export class DescriptionComponent implements OnInit {
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+export class DescriptionComponent implements Input {
+  @Input() public product: Product;
 }
