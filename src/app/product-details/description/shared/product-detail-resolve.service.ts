@@ -16,10 +16,8 @@ export class ProductDetailResolveService implements Resolve<Product> {
     return this.getDataService.getProduct(id).map((product) => {
       if (product) {
         return product;
-      } else {
-        this.router.navigate(['/']);
-        return false;
       }
+      return false;
     });
   }
 }

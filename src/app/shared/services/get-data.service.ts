@@ -3,6 +3,7 @@
  */
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -13,7 +14,8 @@ import { ReviewModel } from '../models/review.model';
 
 @Injectable()
 export class GetDataService {
-  constructor(private http: Http) {
+  constructor(private http: Http,
+              private router: Router) {
   }
 
   public getListProduct(): Observable<Product[]> | any {
@@ -39,15 +41,19 @@ export class GetDataService {
           if (+obj.id === +id) {
             return obj;
           }
+          this.router.navigate(['/404']);
         }
       })
       .flatMap((product) => {
-        return this.getReviews(product.id).map((res) => {
-          return {
-            product,
-            reviews: res
-          };
-        });
+        if (product) {
+          return this.getReviews(product.id).map((res) => {
+            return {
+              product,
+              reviews: res
+            };
+          });
+        }
+        return [];
       });
   }
 
@@ -63,16 +69,16 @@ export class GetDataService {
               obj.text,
               obj.created_at,
               obj.created_by.username,
-             ));
+            ));
           }
         }
-        return reviews;
+        return reviews.reverse();
       });
   }
+
   public postProductReview(id, review) {
     return this.http.post(`${settings.defaultHttp}api/reviews/${id}`, review)
       .map((res) => {
-        console.log(res.json());
         return res.json();
       });
   }

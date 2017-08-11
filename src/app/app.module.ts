@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { MyAuthService } from './core/my-auth.service';
 import { HttpService } from './core/http.service';
 import { SessionService } from './core/session.service';
+import { NoContentComponent } from './no-content/no-content.component';
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -21,7 +22,8 @@ import { SessionService } from './core/session.service';
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
-    AppComponent
+    AppComponent,
+    NoContentComponent
   ],
   /**
    * Import Angular's modules.

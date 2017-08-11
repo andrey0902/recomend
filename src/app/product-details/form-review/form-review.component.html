@@ -1,4 +1,4 @@
-<md-card>
+<md-card *ngIf="isLogin">
   <div class="wrapper" [formGroup]="formReview" #review="ngForm">
     <p>
   <span md-list-icon>
