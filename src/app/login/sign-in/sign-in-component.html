@@ -4,18 +4,15 @@
       <div class="wrapper-sing-up">
         <h2 class="title">Sing in</h2>
         <form class="form-sing-up example-form"
-             [formGroup]="formSignIn"
-             #SignIn="ngForm"
-             (submit)="signInUser($event, formSignIn.value, SignIn.valid);"
+              [formGroup]="formSignIn"
+              #SignIn="ngForm"
+              (submit)="signInUser($event, formSignIn.value, SignIn.valid);"
         >
           <md-input-container class="example-full-width">
             <input mdInput placeholder="User name" formControlName="name">
-            <!--  <md-error *ngIf="">
-                Please enter a valid email address
-              </md-error>
-              <md-error *ngIf="emailFormControl.hasError('required')">
-                Email is <strong>required</strong>
-              </md-error>-->
+            <validation-app *ngIf="formSignIn.get('name')?.touched && formSignIn.get('name')?.invalid"
+                            [file]="formSignIn.get('name')">
+            </validation-app>
           </md-input-container>
           <md-input-container class="example-full-width">
             <input mdInput placeholder="Password" formControlName="password">

@@ -16,17 +16,25 @@ import { UserStateService } from '../../shared/services/user-state.service';
 })
 export class SignInComponent {
   public formSignIn: FormGroup;
-  constructor(
-    private router: Router,
-    private myAuthService: MyAuthService,
-    private storageService: StorageService,
-    private userStateService: UserStateService,
-  ) {
+
+  constructor(private router: Router,
+              private myAuthService: MyAuthService,
+              private storageService: StorageService,
+              private userStateService: UserStateService,) {
     this.formSignIn = new FormGroup({
-      name: new FormControl(null, [Validators.required]),
-      password: new FormControl(null, [Validators.required])
+      name: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(5)
+      ]),
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(5)
+      ])
     });
   }
+
   public signInUser($event, data, valid) {
     $event.preventDefault();
     let userData: UserModel;

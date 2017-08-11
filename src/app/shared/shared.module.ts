@@ -10,6 +10,7 @@ import { StorageService } from './services/storage.service';
 import { GetDataService } from './services/get-data.service';
 import { UserStateService } from './services/user-state.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { ValidationComponent } from './components/validation/validation.component';
 
 @NgModule({
   imports: [
@@ -22,11 +23,13 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     UserBlockComponent,
     FooterComponent,
+    ValidationComponent,
   ],
   declarations: [
     HeaderComponent,
     UserBlockComponent,
     FooterComponent,
+    ValidationComponent,
   ],
   providers: [
     StorageService,
