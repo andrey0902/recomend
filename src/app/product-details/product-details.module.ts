@@ -12,7 +12,8 @@ import { ProductDetailResolveService } from './description/shared/product-detail
 import { ReviewsListComponent } from './reviews-list/reviews-list.component';
 import { ReviewsItemComponent } from './review-item/reviews-item.component';
 import { FormReviewComponent } from './form-review/form-review.component';
-import { MdCardModule } from '@angular/material';
+import { MdCardModule, MdButtonModule } from '@angular/material';
+import { ReviewStateService } from './shared/review-state.service';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { MdCardModule } from '@angular/material';
     NgbModule,
     BrowserAnimationsModule,
     MdCardModule,
+    MdButtonModule,
     ProductDetailsRouterModule
   ],
   exports: [],
@@ -32,7 +34,10 @@ import { MdCardModule } from '@angular/material';
     ReviewsItemComponent,
     FormReviewComponent
   ],
-  providers: [ProductDetailResolveService],
+  providers: [
+    ProductDetailResolveService,
+    ReviewStateService
+  ],
 })
 export class ProductDetailsModule {
 }

@@ -59,13 +59,21 @@ export class GetDataService {
         if (result) {
           for (let obj of result) {
             reviews.push(new ReviewModel(
+              obj.rate,
+              obj.text,
               obj.created_at,
               obj.created_by.username,
-              obj.rate,
-              obj.text));
+             ));
           }
         }
         return reviews;
+      });
+  }
+  public postProductReview(id, review) {
+    return this.http.post(`${settings.defaultHttp}api/reviews/${id}`, review)
+      .map((res) => {
+        console.log(res.json());
+        return res.json();
       });
   }
 }

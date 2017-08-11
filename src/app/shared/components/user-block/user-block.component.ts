@@ -11,27 +11,28 @@ import { UserStateService } from '../../services/user-state.service';
 
 export class UserBlockComponent implements OnInit, OnDestroy {
   public userData: any;
+  public isSubscribe;
 
   constructor(private serviceStorage: StorageService,
-              private myAuthservice: MyAuthService,
+              private myAuthService: MyAuthService,
               private userStateService: UserStateService) {
   }
 
   public ngOnInit() {
     this.getUserData();
-    this.userStateService.state.subscribe(() => {
+    this.isSubscribe = this.userStateService.state.subscribe(() => {
       this.getUserData();
     });
   }
 
   public logOut() {
-    this.myAuthservice.logOut().subscribe(() => {
+    this.myAuthService.logOut().subscribe(() => {
       this.getUserData();
     });
   }
 
   public ngOnDestroy() {
-    this.userStateService.state.unsubscribe();
+    this.isSubscribe.unsubscribe();
   }
 
   private getUserData() {

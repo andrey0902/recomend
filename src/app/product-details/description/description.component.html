@@ -1,6 +1,16 @@
-<h2>Description</h2>
-<div>
-  <p>{{product.title}}</p>
-  <p>{{product.img}}</p>
-  <p>{{product.text}}</p>
-</div>
+<md-card>
+  <div class="wrapper">
+    <md-card-title class="title">
+      <p>{{product?.title}}</p>
+    </md-card-title>
+    <img md-card-image [src]="http + 'static/' + product?.img" class="description-img" alt="">
+    <md-card-content>
+      <md-card-title class="title">
+        Description
+      </md-card-title>
+      <p>
+        {{product?.text}}
+      </p>
+    </md-card-content>
+  </div>
+</md-card>
