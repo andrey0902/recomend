@@ -24,30 +24,39 @@ export class ValidationComponent implements OnInit, Input {
     },
     maxlength: () => {
       return `Max length is ${this.requiredLength} your enter is ${this.actualLength}`;
+    },
+    toEqual: () => {
+      return `Passwords do not match`;
+    },
+    pattern: () => {
+      return `Invalid filed pattern`;
     }
   };
 
   public ngOnInit() {
-    console.log('a', this.file.errors);
+    console.log('a', this.file);
     this.file.valueChanges.subscribe((e) => {
       console.log('valueChange', e);
-      console.log('a', this.file.errors);
-      this.iterator(this.file.errors);
+      console.log('a', this.file);
+      this.iterator(this.file);
       console.log('this.error', this.error);
     });
-    this.iterator(this.file.errors);
+    this.iterator(this.file);
   }
 
   public iterator(obj) {
-    for (let key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        this.actualLength = obj[key].actualLength;
-        this.requiredLength = obj[key].requiredLength;
-        console.log('obj[key]', obj[key]);
+    let control = obj.errors;
+    this.error = () => { return ''; };
+    for (let key in control) {
+      if (control.hasOwnProperty(key) && obj.touched && obj.dirty) {
+        this.actualLength = control[key].actualLength;
+        this.requiredLength = control[key].requiredLength;
+        console.log('obj[key]', key, control[key]);
+        console.log('obj.touched && obj.dirty', obj.touched, obj.dirty);
         console.log('obj[key].actualLength', this.actualLength);
         this.error = this.dataError[key];
-      }/* else {
-        this.error = null;
+      } /*else {
+        this.error = () => { return ''; };
       }*/
     }
   }

@@ -10,7 +10,13 @@
         >
 <!--(click)="activateCanDeactivated()"-->
             <md-input-container class="example-full-width">
-              <input mdInput placeholder="User name" formControlName="name">
+              <input mdInput placeholder="User name"
+                     formControlName="name"
+                     (blur)="showError=true"
+                     (focus)="showError=false">
+              <validation-app *ngIf="showError "
+                              [file]="formSignUp.get('name')">
+              </validation-app>
             <!--  <md-error *ngIf="">
                 Please enter a valid email address
               </md-error>
@@ -19,7 +25,13 @@
               </md-error>-->
             </md-input-container>
           <md-input-container class="example-full-width">
-            <input mdInput placeholder="Password" formControlName="password">
+            <input mdInput placeholder="Password"
+                   formControlName="password"
+                   (blur)="showError=true"
+                   (focus)="showError=false">
+            <validation-app *ngIf="showError "
+                            [file]="formSignUp.get('password')">
+            </validation-app>
             <!--  <md-error *ngIf="">
                 Please enter a valid email address
               </md-error>
@@ -28,7 +40,13 @@
               </md-error>-->
           </md-input-container>
           <md-input-container class="example-full-width">
-            <input mdInput placeholder="Confirm password" formControlName="confirmPassword">
+            <input mdInput placeholder="Confirm password"
+                   formControlName="confirmPassword"
+                   (blur)="showError=true"
+                   (focus)="showError=false">
+            <validation-app *ngIf="showError "
+                            [file]="formSignUp.get('confirmPassword')">
+            </validation-app>
             <!--  <md-error *ngIf="">
                 Please enter a valid email address
               </md-error>
@@ -37,7 +55,7 @@
               </md-error>-->
           </md-input-container>
           <div class="btn-group">
-            <button type="submit" md-raised-button>Sign Up</button>
+            <button type="submit" [disabled]="registration.invalid" md-raised-button>Sign Up</button>
           </div>
         </form>
       </div>

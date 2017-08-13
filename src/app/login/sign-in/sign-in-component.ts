@@ -16,16 +16,23 @@ import { UserStateService } from '../../shared/services/user-state.service';
 })
 export class SignInComponent {
   public formSignIn: FormGroup;
-
+  public showError: boolean;
   constructor(private router: Router,
               private myAuthService: MyAuthService,
               private storageService: StorageService,
-              private userStateService: UserStateService,) {
+              private userStateService: UserStateService) {
     this.formSignIn = new FormGroup({
       name: new FormControl(null, [
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(5)
+      ]),
+      email: new FormControl(null, [
+        Validators.required,
+        //tslint:disable
+        Validators.pattern( /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/i),
+        Validators.minLength(2),
+        Validators.maxLength(15)
       ]),
       password: new FormControl(null, [
         Validators.required,
