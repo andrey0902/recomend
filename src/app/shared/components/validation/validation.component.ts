@@ -43,8 +43,6 @@ export class ValidationComponent implements OnInit, Input {
       if (obj.hasOwnProperty(key)) {
         this.actualLength = obj[key].actualLength;
         this.requiredLength = obj[key].requiredLength;
-        console.log('obj[key]', obj[key]);
-        console.log('obj[key].actualLength', this.actualLength);
         this.error = this.dataError[key];
       }/* else {
         this.error = null;
