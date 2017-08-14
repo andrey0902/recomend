@@ -1,0 +1,28 @@
+.cart-block-icon{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  & .cart{
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    color: rgba(40, 75, 106, 0.87);
+  }
+  & .count{
+    position: absolute;
+    top: -30px;
+    color: white;
+    display: block;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    background: #fb3f4c;
+    border-radius: 50%;
+    right: -10px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+

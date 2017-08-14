@@ -1,0 +1,8 @@
+<div class="cart-header">
+  <span class="cart-block-icon" (click)="showCart()">
+  <i class="material-icons cart">shopping_cart</i>
+  <i *ngIf="uniqueCount" class="count">{{uniqueCount}}</i>
+</span>
+  <cart-popup-app *ngIf="show"></cart-popup-app>
+</div>
+

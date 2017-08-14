@@ -11,11 +11,13 @@ import { GetDataService } from './services/get-data.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { ValidationComponent } from './components/validation/validation.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CartModule } from '../cart/cart.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
+    CartModule,
     BrowserAnimationsModule,
     MdIconModule,
   ],

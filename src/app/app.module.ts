@@ -15,6 +15,7 @@ import { MyAuthService } from './core/my-auth.service';
 import { HttpService } from './core/http.service';
 import { SessionService } from './core/session.service';
 import { NoContentComponent } from './no-content/no-content.component';
+import { IntermediateModule } from './intermediate/intermediate.module';
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -31,6 +32,7 @@ import { NoContentComponent } from './no-content/no-content.component';
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
+    IntermediateModule,
     SharedModule,
     HomeModule,
     LoginModule,

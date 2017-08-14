@@ -1,0 +1,11 @@
+<div class="pop-up">
+  <ul class="list">
+    <li class="item" *ngFor="let item of productCart">
+      <img style="width: 20px; height: 20px; border-radius: 50%" [src]="pathImg+item.poductImg" alt="">
+      <span>title: {{item.productTitle}}</span>
+      <span>Price: {{item.price}}$</span>
+      <span>totalCount{{item.price * item.count}}$</span>
+      <input type="number" [value]="item.count" min="1">
+    </li>
+  </ul>
+</div>
