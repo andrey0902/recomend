@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { Product } from '../shared/product.model';
 import { settings } from '../../core/settings';
+import { Product } from '../../shared/models/product.model';
 
 @Component({
   selector: 'product-item-app',
@@ -15,5 +15,8 @@ export class ProductItemComponent implements Input, OnInit {
   @Input()  public item: Product;
   public ngOnInit() {
     console.log(this.item);
+  }
+  public buyProduct(item) {
+    console.log('item', item);
   }
 }

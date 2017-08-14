@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { ProductDetailsComponent } from './product-details.component';
-import { MyAuthService } from '../core/my-auth.service';
 import { ProductDetailResolveService } from './description/shared/product-detail-resolve.service';
 
 @NgModule({
@@ -11,7 +10,6 @@ import { ProductDetailResolveService } from './description/shared/product-detail
         {
           path: 'product/:id',
           component: ProductDetailsComponent,
-          /*canActivate: [MyAuthService],*/
           resolve: {
             product: ProductDetailResolveService
           }

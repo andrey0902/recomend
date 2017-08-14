@@ -6,5 +6,6 @@ export class Product {
     public title: string,
     public id: number,
     public img: string,
-    public text: string) {}
+    public text: string,
+    public price: number = 50) {}
 }

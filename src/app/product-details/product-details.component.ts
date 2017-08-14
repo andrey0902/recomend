@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { GetDataService } from '../shared/services/get-data.service';
 import { ReviewStateService } from './shared/review-state.service';
 
@@ -14,10 +14,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   private subscription;
   private productId: number;
 
-  constructor(private router: Router,
-              private activatedRoute: ActivatedRoute,
-              private getDataService: GetDataService,
-              private reviewStateService: ReviewStateService) {
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
   public ngOnInit() {
@@ -25,14 +22,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     this.subscription = this.activatedRoute.data.subscribe((data: any) => {
       this.productData = data.product;
     });
-    this.reviewStateService.state.subscribe((res) => {
-      if (res) {
-        this.productData = this.getDataService.getProduct(this.productId)
-          .subscribe((result) => {
-            this.productData = result;
-          });
-      }
-    });
+
   }
   public ngOnDestroy() {
     this.subscription.unsubscribe();

@@ -19,7 +19,7 @@
             </md-input-container>
           <div formGroupName="pass">
             <md-input-container class="example-full-width">
-              <input mdInput placeholder="Password"
+              <input mdInput type="password" placeholder="Password"
                      formControlName="password"
                      (blur)="showError=true">
                           <validation-app class="error" *ngIf="showError "
@@ -27,7 +27,7 @@
                           </validation-app>
             </md-input-container>
             <md-input-container class="example-full-width">
-              <input mdInput placeholder="Confirm password"
+              <input mdInput type="password" placeholder="Confirm password"
                      formControlName="confirmPassword"
                      (blur)="showError=true">
                           <validation-app class="error" *ngIf="showError "

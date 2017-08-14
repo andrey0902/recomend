@@ -11,3 +11,17 @@ img {
   text-decoration: none;
   outline: none;
 }
+.mat-card-actions{
+  display: flex;
+  justify-content: space-around;
+}
+.title{
+  display: block;
+  margin-bottom: 35px;
+}
+.img{
+  transition: .3s;
+}
+.img:hover {
+  opacity: .7;
+}

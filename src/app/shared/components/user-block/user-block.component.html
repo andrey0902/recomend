@@ -13,6 +13,7 @@
   </div>
 
   <div class="user-block-icons" *ngIf="userData">
+    <cart-app [count]="4"></cart-app>
     <i class="material-icons">&#xE8A6;</i>
     <span class="user-name"><span>User: </span> {{userData}}</span>
 

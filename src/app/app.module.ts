@@ -32,7 +32,7 @@ import { NoContentComponent } from './no-content/no-content.component';
     BrowserModule,
     NgbModule.forRoot(),
     SharedModule,
-    HomeModule, /*импортируется первее чем AppRouterModule потому что с Home все начнется*/
+    HomeModule,
     LoginModule,
     ProductDetailsModule,
     AppRouterModule,

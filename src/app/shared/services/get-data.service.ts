@@ -39,10 +39,11 @@ export class GetDataService {
         let result = res.json();
         for (let obj of result) {
           if (+obj.id === +id) {
+            console.log('+obj.id === +id', +obj.id === +id)
             return obj;
           }
-          this.router.navigate(['/404']);
         }
+        this.router.navigate(['/404']);
       })
       .flatMap((product) => {
         if (product) {

@@ -16,7 +16,7 @@
             </validation-app>
           </md-input-container>
           <md-input-container class="example-full-width">
-            <input mdInput placeholder="Password" (blur)="showError=true"
+            <input mdInput placeholder="Password" type="password" (blur)="showError=true"
                    formControlName="password">
             <validation-app class="error" *ngIf="showError"
                             [file]="formSignIn.get('password')"></validation-app>

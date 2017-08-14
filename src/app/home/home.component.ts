@@ -1,8 +1,7 @@
 /**
  * Created by andrei on 30.07.2017.
  */
-import { Component, OnInit } from '@angular/core';
-import { GetDataService } from './shared/get-data.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'home',

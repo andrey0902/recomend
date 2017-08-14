@@ -1,17 +1,18 @@
 <md-card class="example-card">
   <md-card-header>
     <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>{{item.title}}</md-card-title>
-  <!--  <md-card-subtitle>{{item.title}}</md-card-subtitle>-->
+    <md-card-title class="title">{{item.title}}</md-card-title>
   </md-card-header>
-  <img md-card-image [src]='pathImg + item.img'>
+  <a class="link" [routerLink]="['/product', item.id]" routerLinkActive="active">
+    <img md-card-image class="img" [src]='pathImg + item.img'>
+  </a>
   <md-card-content>
     <p>
-     {{item.test}}
+      {{item.test}}
     </p>
   </md-card-content>
   <md-card-actions>
-<!--    <button md-button>LIKE</button>-->
+    <button md-raised-button (click)="buyProduct(item)">Buy</button>
     <a class="link" [routerLink]="['/product', item.id]" routerLinkActive="active" md-raised-button>more...</a>
   </md-card-actions>
 </md-card>
