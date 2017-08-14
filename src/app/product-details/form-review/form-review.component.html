@@ -12,10 +12,18 @@
     </ngb-rating>
     <hr>
     <pre>Rate: <b>{{(currentRate)}}</b></pre>
-    <p>Your review</p>
-    <textarea formControlName="text" class="review" name="review" id="" cols="30" rows="10"></textarea>
+    <div class="text">
+      <p>Your review</p>
+      <textarea formControlName="text" [class.focus]='focus' (focus)="focus=true" (blur)="showError=true;focus=false;" class="review" name="review" id="" cols="30"
+                rows="10"></textarea>
+      <validation-app class="error"
+        [file]="formReview.get('text')">
+      </validation-app>
+    </div>
     <div class='block-button'>
-      <button [disabled]='!isLogin' (click)="sendReview($event, formReview, review.valid)" md-raised-button>Send review</button>
+      <button [disabled]='formReview.invalid' (click)="sendReview($event, formReview, review.valid)" md-raised-button>
+        Send review
+      </button>
     </div>
   </div>
 </md-card>

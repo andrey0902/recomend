@@ -16,6 +16,7 @@ import { UserStateService } from '../../shared/services/user-state.service';
 })
 export class SignInComponent {
   public formSignIn: FormGroup;
+  public serverError: boolean;
   public showError: boolean;
   constructor(private router: Router,
               private myAuthService: MyAuthService,
@@ -47,8 +48,10 @@ export class SignInComponent {
           this.storageService.setStorage('token', res.token);
           this.userStateService.state = 'ddd';
           this.router.navigate(['/']);
+          this.serverError = false;
           return;
         }
+        this.serverError = true;
         console.log('error', res);
       });
       console.log($event, data, valid, userData);

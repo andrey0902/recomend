@@ -11,15 +11,18 @@
           <md-input-container class="example-full-width">
             <input mdInput placeholder="User name" (blur)="showError=true"
                    formControlName="name">
-            <validation-app *ngIf="showError"
+            <validation-app class="error" *ngIf="showError"
                             [file]="formSignIn.get('name')">
             </validation-app>
           </md-input-container>
           <md-input-container class="example-full-width">
             <input mdInput placeholder="Password" (blur)="showError=true"
                    formControlName="password">
-            <validation-app *ngIf="showError"
+            <validation-app class="error" *ngIf="showError"
                             [file]="formSignIn.get('password')"></validation-app>
+            <div class="server-error" *ngIf="serverError">
+              Username or password invalid!
+            </div>
           </md-input-container>
           <div class="btn-group">
             <button type="submit" [disabled]="SignIn.invalid" md-raised-button>Sign in</button>

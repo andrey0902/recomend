@@ -1,3 +1,4 @@
+$color-error: red;
 .wrapper-sing-up{
   display: flex;
   justify-content: center;
@@ -21,4 +22,19 @@
 }
 md-input-container.mat-focused validation-app{
   display: none;
+}
+.server-error {
+  position: absolute;
+  top: 60px;
+  margin: 0;
+  color: $color-error;
+}
+md-input-container{
+  position: relative;
+}
+.error{
+  position: absolute;
+  left: 0;
+  top: 35px;
+  color: $color-error;
 }

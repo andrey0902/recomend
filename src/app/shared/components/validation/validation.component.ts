@@ -30,6 +30,9 @@ export class ValidationComponent implements OnInit, Input {
     },
     pattern: () => {
       return `Invalid filed pattern`;
+    },
+    equalTo: () => {
+      return `Invalid filed equalTo`;
     }
   };
 
@@ -37,8 +40,8 @@ export class ValidationComponent implements OnInit, Input {
     console.log('a', this.file);
     console.log('focus', focus);
     this.file.valueChanges.subscribe((e) => {
-/*      console.log('valueChange', e);*/
-/*      console.log('a', this.file);*/
+      console.log('valueChange', e);
+      console.log('a', this.file);
       this.iterator(this.file);
 /*      console.log('this.error', this.error);*/
     });
@@ -53,9 +56,9 @@ export class ValidationComponent implements OnInit, Input {
       if (control.hasOwnProperty(key) && obj.dirty) {
         this.actualLength = control[key].actualLength;
         this.requiredLength = control[key].requiredLength;
-/*        console.log('obj[key]', key, control[key]);
+        console.log('obj[key]', key, control[key]);
 
-        console.log('obj[key].actualLength', this.actualLength);*/
+        console.log('obj[key].actualLength', this.actualLength);
         this.error = this.dataError[key];
       } /*else {
         this.error = () => { return ''; };

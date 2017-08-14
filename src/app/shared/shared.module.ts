@@ -11,6 +11,7 @@ import { GetDataService } from './services/get-data.service';
 import { UserStateService } from './services/user-state.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { ValidationComponent } from './components/validation/validation.component';
+import { LogOutStateService } from './services/logOut-state.service';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { ValidationComponent } from './components/validation/validation.componen
   providers: [
     StorageService,
     GetDataService,
-    UserStateService
+    UserStateService,
+    LogOutStateService
   ],
 })
 export class SharedModule {

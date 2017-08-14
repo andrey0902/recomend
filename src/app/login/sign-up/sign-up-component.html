@@ -13,26 +13,31 @@
               <input mdInput placeholder="User name"
                      formControlName="name"
                      (blur)="showError=true">
-              <validation-app *ngIf="showError "
+              <validation-app class="error" *ngIf="showError "
                               [file]="formSignUp.get('name')">
               </validation-app>
             </md-input-container>
-          <md-input-container class="example-full-width">
-            <input mdInput placeholder="Password"
-                   formControlName="password"
-                   (blur)="showError=true">
-            <validation-app *ngIf="showError "
-                            [file]="formSignUp.get('password')">
-            </validation-app>
-          </md-input-container>
-          <md-input-container class="example-full-width">
-            <input mdInput placeholder="Confirm password"
-                   formControlName="confirmPassword"
-                   (blur)="showError=true">
-            <validation-app *ngIf="showError "
-                            [file]="formSignUp.get('confirmPassword')">
-            </validation-app>
-          </md-input-container>
+          <div formGroupName="pass">
+            <md-input-container class="example-full-width">
+              <input mdInput placeholder="Password"
+                     formControlName="password"
+                     (blur)="showError=true">
+                          <validation-app class="error" *ngIf="showError "
+                                          [file]="formSignUp.get('pass.password')">
+                          </validation-app>
+            </md-input-container>
+            <md-input-container class="example-full-width">
+              <input mdInput placeholder="Confirm password"
+                     formControlName="confirmPassword"
+                     (blur)="showError=true">
+                          <validation-app class="error" *ngIf="showError "
+                                          [file]="formSignUp.get('pass.confirmPassword')">
+                          </validation-app>
+                          <div class="server-error" *ngIf="serverError">
+                            User with such username already exists!
+                          </div>
+            </md-input-container>
+          </div>
           <div class="btn-group">
             <button type="submit" [disabled]="registration.invalid" md-raised-button>Sign Up</button>
           </div>

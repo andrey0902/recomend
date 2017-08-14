@@ -33,7 +33,7 @@ export class MyAuthService implements CanActivate{
     return this.http.get(settings.defaultHttp + 'logout/', '').map(() => {
       this.storageService.setStorage('userData', null);
       this.sessionService.token = null;
-      this.router.navigate(['/']);
+      /*this.router.navigate(['/']);*/
     });
   }
   public canActivate() {

@@ -14,6 +14,7 @@ import { ReviewsItemComponent } from './review-item/reviews-item.component';
 import { FormReviewComponent } from './form-review/form-review.component';
 import { MdCardModule, MdButtonModule } from '@angular/material';
 import { ReviewStateService } from './shared/review-state.service';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { ReviewStateService } from './shared/review-state.service';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    SharedModule,
     BrowserAnimationsModule,
     MdCardModule,
     MdButtonModule,

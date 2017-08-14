@@ -29,3 +29,15 @@ ngb-rating{
   display: flex;
   justify-content: flex-end;
 }
+.text {
+  position: relative;
+}
+.error {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  color: red;
+}
+textarea:focus ~ .error {
+  display: none;
+}
