@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { StorageService } from '../../services/storage.service';
 import { MyAuthService } from '../../../core/my-auth.service';
-import { UserStateService } from '../../services/user-state.service';
-import { LogOutStateService } from '../../services/logOut-state.service';
 
 @Component({
   selector: 'user-block-component-app',
@@ -15,14 +13,12 @@ export class UserBlockComponent implements OnInit, OnDestroy {
   public isSubscribe;
 
   constructor(private serviceStorage: StorageService,
-              private myAuthService: MyAuthService,
-              private userStateService: UserStateService,
-              private logOutStateService: LogOutStateService) {
+              private myAuthService: MyAuthService) {
   }
 
   public ngOnInit() {
     this.getUserData();
-    this.isSubscribe = this.userStateService.state.subscribe(() => {
+    this.isSubscribe = this.myAuthService.state.subscribe(() => {
       this.getUserData();
     });
   }
@@ -31,7 +27,7 @@ export class UserBlockComponent implements OnInit, OnDestroy {
     this.myAuthService.logOut().subscribe(() => {
       this.getUserData();
     });
-    this.logOutStateService.state = 'logOut';
+    this.myAuthService.state = 'logOut';
   }
 
   public ngOnDestroy() {

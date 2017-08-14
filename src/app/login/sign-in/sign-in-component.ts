@@ -3,11 +3,9 @@
  */
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+
 import { MyAuthService } from '../../core/my-auth.service';
-import { StorageService } from '../../shared/services/storage.service';
 import { UserModel } from '../../shared/models/user.model';
-import { UserStateService } from '../../shared/services/user-state.service';
 
 @Component({
   selector: 'sign-in-app',
@@ -18,10 +16,8 @@ export class SignInComponent {
   public formSignIn: FormGroup;
   public serverError: boolean;
   public showError: boolean;
-  constructor(private router: Router,
-              private myAuthService: MyAuthService,
-              private storageService: StorageService,
-              private userStateService: UserStateService) {
+
+  constructor(private myAuthService: MyAuthService) {
     this.formSignIn = new FormGroup({
       name: new FormControl(null, [
         Validators.required,
@@ -42,23 +38,12 @@ export class SignInComponent {
     if (valid) {
       userData = new UserModel(data.name, data.password);
       this.myAuthService.signInUser(userData).subscribe((res) => {
-        console.log(res);
-        if (res.success) {
-          this.storageService.setStorage('userData', userData.username);
-          this.storageService.setStorage('token', res.token);
-          this.userStateService.state = 'ddd';
-          this.router.navigate(['/']);
-          this.serverError = false;
+        if (!res.success) {
+          this.serverError = true;
           return;
         }
-        this.serverError = true;
-        console.log('error', res);
+        this.serverError = false;
       });
-      console.log($event, data, valid, userData);
     }
-    console.log($event, data, valid);
-  }
-  public test(name) {
-    console.log('control', this.formSignIn.get(name));
   }
 }

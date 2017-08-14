@@ -8,10 +8,8 @@ import { MdIconModule } from '@angular/material';
 import { UserBlockComponent } from './components/user-block/user-block.component';
 import { StorageService } from './services/storage.service';
 import { GetDataService } from './services/get-data.service';
-import { UserStateService } from './services/user-state.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { ValidationComponent } from './components/validation/validation.component';
-import { LogOutStateService } from './services/logOut-state.service';
 
 @NgModule({
   imports: [
@@ -35,8 +33,6 @@ import { LogOutStateService } from './services/logOut-state.service';
   providers: [
     StorageService,
     GetDataService,
-    UserStateService,
-    LogOutStateService
   ],
 })
 export class SharedModule {

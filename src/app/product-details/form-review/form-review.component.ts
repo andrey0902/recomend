@@ -5,7 +5,7 @@ import { ReviewModel } from '../../shared/models/review.model';
 import { GetDataService } from '../../shared/services/get-data.service';
 import { ReviewStateService } from '../shared/review-state.service';
 import { StorageService } from '../../shared/services/storage.service';
-import { LogOutStateService } from '../../shared/services/logOut-state.service';
+import { MyAuthService } from '../../core/my-auth.service';
 
 @Component({
   selector: 'form-review-app',
@@ -25,7 +25,7 @@ export class FormReviewComponent implements OnInit, OnDestroy {
               private getDataService: GetDataService,
               private reviewStateService: ReviewStateService,
               private storageService: StorageService,
-              private logOutStateService: LogOutStateService) {
+              private myAuthService: MyAuthService) {
   }
 
   public ngOnInit() {
@@ -38,16 +38,12 @@ export class FormReviewComponent implements OnInit, OnDestroy {
     });
     this.productId = this.activatedRoute.snapshot.params['id'];
     this.isLogin = !!this.storageService.getStorage('token');
-    console.log('this.isLogin', this.isLogin);
-    this.isSubscribe = this.logOutStateService.state.subscribe((res) => {
-      console.log('subscribe -------');
+    this.isSubscribe = this.myAuthService.state.subscribe((res) => {
       this.isLogin = false;
     });
-    console.log('this.isLogin', this.isLogin);
   }
 
   public sendReview($event, form: FormGroup, valid) {
-    console.log($event, form.value, valid);
     let review: ReviewModel;
     if (valid) {
       review = new ReviewModel(this.currentRate, form.value.text);
