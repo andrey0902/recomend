@@ -9,22 +9,20 @@
               (submit)="signInUser($event, formSignIn.value, SignIn.valid);"
         >
           <md-input-container class="example-full-width">
-            <input mdInput placeholder="User name" formControlName="name">
-            <validation-app *ngIf="formSignIn.get('name')?.touched && formSignIn.get('name')?.invalid"
+            <input mdInput placeholder="User name" (blur)="showError=true"
+                   formControlName="name">
+            <validation-app *ngIf="showError"
                             [file]="formSignIn.get('name')">
             </validation-app>
           </md-input-container>
           <md-input-container class="example-full-width">
-            <input mdInput placeholder="Password" formControlName="password">
-            <!--  <md-error *ngIf="">
-                Please enter a valid email address
-              </md-error>
-              <md-error *ngIf="emailFormControl.hasError('required')">
-                Email is <strong>required</strong>
-              </md-error>-->
+            <input mdInput placeholder="Password" (blur)="showError=true"
+                   formControlName="password">
+            <validation-app *ngIf="showError"
+                            [file]="formSignIn.get('password')"></validation-app>
           </md-input-container>
           <div class="btn-group">
-            <button type="submit" md-raised-button>Sign in</button>
+            <button type="submit" [disabled]="SignIn.invalid" md-raised-button>Sign in</button>
           </div>
         </form>
       </div>

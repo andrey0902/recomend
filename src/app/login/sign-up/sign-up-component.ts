@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { MyAuthService } from '../../core/my-auth.service';
 import { UserModel } from '../../shared/models/user.model';
 import { StorageService } from '../../shared/services/storage.service';
+import { toEqualValidation } from '../../shared/services/validator-password.service';
 
 @Component({
   selector: 'sign-up-app',
@@ -16,6 +17,7 @@ import { StorageService } from '../../shared/services/storage.service';
   styleUrls: ['sign-up-component.scss']
 })
 export class SignUpComponent {
+  public showError: boolean;
   public formSignUp: FormGroup;
   constructor(
     private myAuthService: MyAuthService,
@@ -23,9 +25,22 @@ export class SignUpComponent {
     private router: Router
   ) {
     this.formSignUp = new FormGroup({
-      name: new FormControl(null, [Validators.required]),
-      password: new FormControl(null, [Validators.required]),
-      confirmPassword: new FormControl(null, [Validators.required])
+      name: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(5)
+      ]),
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(5),
+      ]),
+      confirmPassword: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(5),
+        toEqualValidation('password')
+      ])
     });
   }
   public signUpUser($event, data , valid) {
