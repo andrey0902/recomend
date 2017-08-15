@@ -3,7 +3,13 @@
     <md-card-title class="title">
       <p>{{product?.title}}</p>
     </md-card-title>
-    <img md-card-image [src]="http + 'static/' + product?.img" class="description-img" alt="">
+    <div class="body-card">
+      <img md-card-image [src]="http + 'static/' + product?.img" class="description-img" alt="">
+      <div class="buy">
+        <span class="price">{{product.price}}$</span>
+        <button md-raised-button (click)="buyProduct(product)" >buy</button>
+      </div>
+    </div>
     <md-card-content>
       <md-card-title class="title">
         Description

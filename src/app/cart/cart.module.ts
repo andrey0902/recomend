@@ -3,6 +3,7 @@
  */
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +16,6 @@ import { AuthGuard } from './shared/authGuard.service';
 import { IntermediateRouterModule } from './intermediate.router.module';
 import { CartIconComponent } from './cart-icon/cart-icon.component';
 import { CartComponent } from './cart.component';
-import { CartService } from './shared/cart.service';
 import { CartPopupComponent } from './cart-popup/cart-popup.component';
 
 @NgModule({
@@ -24,6 +24,7 @@ import { CartPopupComponent } from './cart-popup/cart-popup.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MdButtonModule,
+    RouterModule,
     MdButtonToggleModule,
     MdInputModule,
     HttpModule,
@@ -38,7 +39,7 @@ import { CartPopupComponent } from './cart-popup/cart-popup.component';
     CartComponent,
     CartPopupComponent,
   ],
-  providers: [CartService]
+  providers: []
 })
 export class CartModule {
 }

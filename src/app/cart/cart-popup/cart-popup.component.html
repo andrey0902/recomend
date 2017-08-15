@@ -1,11 +1,27 @@
 <div class="pop-up">
+  <div class="header">
+    <h3>In the cart {{productCart?.length}} products</h3>
+    <p class="total">For a total of {{totalCount}} $</p>
+  </div>
   <ul class="list">
     <li class="item" *ngFor="let item of productCart">
-      <img style="width: 20px; height: 20px; border-radius: 50%" [src]="pathImg+item.poductImg" alt="">
-      <span>title: {{item.productTitle}}</span>
-      <span>Price: {{item.price}}$</span>
-      <span>totalCount{{item.price * item.count}}$</span>
-      <input type="number" [value]="item.count" min="1">
+      <div class="item-container">
+        <span class="clear" (click)="delete(item)"><i class="material-icons">clear</i></span>
+        <img class="img" [src]="pathImg+item.poductImg" alt="">
+        <div class="details">
+          <p class="title">{{item.productTitle}}</p>
+          <div class="footer-item">
+            <span class="price">{{item.price}}$</span>
+            <input class="count" type="number" [value]="item.count" #inputCount (change)="changeCount(item.productId ,inputCount.value)" min="1">
+            <span class="total">Total {{item.price * item.count}}$</span>
+          </div>
+        </div>
+      </div>
     </li>
   </ul>
+  <div class="cart-link">
+    <a routerLink="cart"
+       routerLinkActive="active"
+       class="cart-link link"><i class="material-icons cart">shopping_cart</i> Go to cart</a>
+  </div>
 </div>

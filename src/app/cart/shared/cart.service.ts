@@ -1,7 +1,7 @@
 /**
  * Created by andrei on 14.08.2017.
  */
-import { Injectable } from '@angular/core';
+/*import { Injectable } from '@angular/core';
 
 import { CartProductModel } from './cart-product.model';
 
@@ -23,4 +23,4 @@ export class CartService {
     });
     return Object.keys(result).length;
   }
-}
+}*/

@@ -39,8 +39,8 @@ export class GetDataService {
         let result = res.json();
         for (let obj of result) {
           if (+obj.id === +id) {
-            console.log('+obj.id === +id', +obj.id === +id)
-            return obj;
+            console.log('+obj.id === +id^^^^^^^^^^', obj)
+            return new Product(obj.title, obj.id, obj.img, obj.text);;
           }
         }
         this.router.navigate(['/404']);

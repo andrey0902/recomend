@@ -1,1 +1,26 @@
-<h2>this is a big cart cart-app</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="center">Cart</h2>
+      <div class="wrapper">
+        <ul class="cart">
+          <li class="item" *ngFor="let item of productCart">
+            <div class="item-wrapper">
+              <div class="img">
+                <i class="material-icons clear">remove_circle_outline</i>
+                <img class="cart-img" [src]="pathImg + item.poductImg" alt="">
+              </div>
+              <div class="descriptions">
+
+              </div>
+              <div class="price">
+
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { settings } from '../../core/settings';
 import { Product } from '../../shared/models/product.model';
+import { CartService } from '../../shared/services/cart.service';
+import { CartStatCountService } from '../../shared/services/cart-stat-count.service';
 
 @Component({
   selector: 'product-item-app',
@@ -13,10 +15,15 @@ export class ProductItemComponent implements Input, OnInit {
     return settings.defaultHttp + 'static/';
   }
   @Input()  public item: Product;
+  constructor(
+    private cartService: CartService,
+    private cartStatCountService: CartStatCountService
+  ) {}
   public ngOnInit() {
     console.log(this.item);
   }
   public buyProduct(item) {
-    console.log('item', item);
+    this.cartService.addProductInCart(item);
+    this.cartStatCountService.state = 'item';
   }
 }
