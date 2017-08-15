@@ -11,14 +11,29 @@
                 <img class="cart-img" [src]="pathImg + item.poductImg" alt="">
               </div>
               <div class="descriptions">
-
+                <h3>{{item.productTitle}}</h3>
+                <div class="body-descriptions">
+                  <span class="price-count">{{item.price}}$</span>
+                  <div class="cart-amount">
+                    <i class="material-icons icon">remove</i>
+                    <input type="text" class="item-count dop" [value]="item.count">
+                    <i class="material-icons icon">add</i>
+                  </div>
+                </div>
               </div>
               <div class="price">
-
+                  <span>Total</span>
+                <span class="total">{{item.count * item.price}} $</span>
               </div>
             </div>
           </li>
         </ul>
+        <div class="all">
+          <div class="all-total">
+            <p>All total: <span>{{55}}$</span></p>
+            <button md-raised-button>Pay</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
