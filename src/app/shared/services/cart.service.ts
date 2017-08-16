@@ -7,7 +7,6 @@ import { ApiStorageService } from './api-storage.service';
 
 @Injectable()
 export class CartService {
- /* public cart: CartProductModel[] = [];*/
   constructor(private apiStorageService: ApiStorageService) {}
   public getCart(): Promise<CartProductModel[]> {
     return this.apiStorageService.getAllCart();
@@ -26,6 +25,9 @@ export class CartService {
   }
   public removeProductCart(id: number) {
     return this.apiStorageService.removeProduct(id);
+  }
+  public getTotal() {
+    return this.apiStorageService.getTotalCount();
   }
   /*
   * getAll()

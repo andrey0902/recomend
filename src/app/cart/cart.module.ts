@@ -17,6 +17,8 @@ import { IntermediateRouterModule } from './intermediate.router.module';
 import { CartIconComponent } from './cart-icon/cart-icon.component';
 import { CartComponent } from './cart.component';
 import { CartPopupComponent } from './cart-popup/cart-popup.component';
+import { CloseCartDirective } from './shared/close-cart.directive';
+import { ToggleClassDirective } from './shared/toggle-class.directive';
 
 @NgModule({
   imports: [
@@ -38,6 +40,8 @@ import { CartPopupComponent } from './cart-popup/cart-popup.component';
     CartIconComponent,
     CartComponent,
     CartPopupComponent,
+    CloseCartDirective,
+    ToggleClassDirective
   ],
   providers: []
 })

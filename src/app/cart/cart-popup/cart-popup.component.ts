@@ -2,7 +2,7 @@
  * Created by andrei on 14.08.2017.
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CartService } from '../../shared/services/cart.service';
 import { settings } from '../../core/settings';
 import { CartProductModel } from '../../shared/models/cart-product.model';
@@ -13,9 +13,8 @@ import { CartStatCountService } from '../../shared/services/cart-stat-count.serv
   templateUrl: 'cart-popup.component.html',
   styleUrls: ['cart-popup.component.scss']
 })
-export class CartPopupComponent implements OnInit {
+export class CartPopupComponent implements OnInit, Input {
   public productCart: CartProductModel[];
-
   constructor(private cartService: CartService,
               private cartStatCountService: CartStatCountService) {
   }

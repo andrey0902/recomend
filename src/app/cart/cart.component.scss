@@ -111,6 +111,10 @@ ul, li {
   color: rgb(117, 117, 117);
   cursor: pointer;
   margin: 0 5px;
+  transition: .3s;
+}
+.icon:hover{
+  color: black;
 }
 
 .cart-amount {
@@ -142,7 +146,8 @@ ul, li {
   justify-content: flex-end;
 
   & .all-total {
-    width: 30%;
+    width: 24%;
+    margin-top: 20px;
     height: 150px;
     background: rgba(191, 191, 191, 0.24);
     padding: 10px 15px;

@@ -27,7 +27,6 @@ export class UserBlockComponent implements OnInit, OnDestroy {
     this.myAuthService.logOut().subscribe(() => {
       this.getUserData();
     });
-    this.myAuthService.state = 'logOut';
   }
 
   public ngOnDestroy() {

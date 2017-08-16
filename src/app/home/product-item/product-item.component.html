@@ -12,7 +12,7 @@
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-raised-button (click)="buyProduct(item)">Buy</button>
+    <button md-raised-button *ngIf="isLogin" (click)="buyProduct(item)">Buy</button>
     <a class="link" [routerLink]="['/product', item.id]" routerLinkActive="active" md-raised-button>more...</a>
   </md-card-actions>
 </md-card>

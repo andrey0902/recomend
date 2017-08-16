@@ -10,11 +10,11 @@ import { StorageService } from './services/storage.service';
 import { GetDataService } from './services/get-data.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { ValidationComponent } from './components/validation/validation.component';
-import { CartComponent } from './components/cart/cart.component';
 import { CartModule } from '../cart/cart.module';
 import { CartService } from './services/cart.service';
 import { CartStatCountService } from './services/cart-stat-count.service';
 import { ApiStorageService } from './services/api-storage.service';
+import { CloseCartDirective } from './directives/close-cart.directive';
 
 @NgModule({
   imports: [
@@ -29,14 +29,13 @@ import { ApiStorageService } from './services/api-storage.service';
     UserBlockComponent,
     FooterComponent,
     ValidationComponent,
-    CartComponent,
   ],
   declarations: [
     HeaderComponent,
     UserBlockComponent,
     FooterComponent,
     ValidationComponent,
-    CartComponent
+    CloseCartDirective
   ],
   providers: [
     StorageService,

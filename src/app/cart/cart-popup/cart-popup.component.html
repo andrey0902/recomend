@@ -1,4 +1,4 @@
-<div class="pop-up">
+<div id="popup" class="pop-up  hide">
   <div class="header">
     <h3>In the cart {{productCart?.length}} products</h3>
     <p class="total">For a total of {{totalCount}} $</p>
@@ -22,6 +22,10 @@
   <div class="cart-link">
     <a routerLink="cart"
        routerLinkActive="active"
+       toggleClass
        class="cart-link link"><i class="material-icons cart">shopping_cart</i> Go to cart</a>
   </div>
 </div>
+<div class="cover hide" hidePopUpCart>
+</div>
+

@@ -5,7 +5,7 @@
     </md-card-title>
     <div class="body-card">
       <img md-card-image [src]="http + 'static/' + product?.img" class="description-img" alt="">
-      <div class="buy">
+      <div class="buy" *ngIf="isLogin">
         <span class="price">{{product.price}}$</span>
         <button md-raised-button (click)="buyProduct(product)" >buy</button>
       </div>

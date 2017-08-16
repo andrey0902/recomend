@@ -81,6 +81,15 @@ export class ApiStorageService {
     this.setCat(this.cart);
     return this.setPromise(this.cart);
   }
+  public getTotalCount() {
+    let total: number = 0;
+    if (this.cart.length) {
+      this.cart.forEach((elm: CartProductModel) => {
+        total += (elm.count * elm.price);
+      });
+    }
+    return  this.setPromise(total);
+  }
 
   private setPromise(data: any) {
     return Promise.resolve(data);

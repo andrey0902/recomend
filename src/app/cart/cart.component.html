@@ -7,7 +7,7 @@
           <li class="item" *ngFor="let item of productCart">
             <div class="item-wrapper">
               <div class="img">
-                <i class="material-icons clear">remove_circle_outline</i>
+                <i class="material-icons clear" (click)="clearProduct(item)">remove_circle_outline</i>
                 <img class="cart-img" [src]="pathImg + item.poductImg" alt="">
               </div>
               <div class="descriptions">
@@ -15,9 +15,9 @@
                 <div class="body-descriptions">
                   <span class="price-count">{{item.price}}$</span>
                   <div class="cart-amount">
-                    <i class="material-icons icon">remove</i>
+                    <i class="material-icons icon" (click)="removeProduct(item)">remove</i>
                     <input type="text" class="item-count dop" [value]="item.count">
-                    <i class="material-icons icon">add</i>
+                    <i class="material-icons icon" (click)="addProduct(item)">add</i>
                   </div>
                 </div>
               </div>
@@ -30,7 +30,7 @@
         </ul>
         <div class="all">
           <div class="all-total">
-            <p>All total: <span>{{55}}$</span></p>
+            <p>All total: <span>{{countTotal}}$</span></p>
             <button md-raised-button>Pay</button>
           </div>
         </div>
