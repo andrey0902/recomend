@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { GetDataService } from '../../shared/services/get-data.service';
 import { Product } from '../../shared/models/product.model';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 @Component({
   selector: 'product-list-app',
@@ -13,6 +15,12 @@ export class ProductListComponent implements OnInit {
   constructor(private service: GetDataService) {}
   public ngOnInit() {
     this.getData();
+    this.test().subscribe((res) => {
+      console.log(res);
+    });
+  }
+  public test(): Observable<any> {
+    return Observable.of({a: 5, b: 6});
   }
   public getData() {
     this.service.getListProduct().subscribe((response) => {

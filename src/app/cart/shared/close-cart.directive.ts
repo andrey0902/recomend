@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener} from '@angular/core';
 
 @Directive({selector: '[hidePopUpCart]'})
 export class CloseCartDirective {
@@ -7,8 +7,6 @@ export class CloseCartDirective {
 
   @HostListener('click', ['$event'])
   public change($event) {
-    console.log(this.el);
-
     let target: Element = this.el.nativeElement;
     target.classList.toggle('hide');
     target.previousElementSibling.classList.toggle('hide');
