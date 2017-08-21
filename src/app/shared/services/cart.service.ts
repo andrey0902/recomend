@@ -29,10 +29,4 @@ export class CartService {
   public getTotal() {
     return this.apiStorageService.getTotalCount();
   }
-  /*
-  * getAll()
-  * addPr(idPr, c)
-  * updatepr(idPr, c)
-  * removeRp(idPr)
-  * */
 }

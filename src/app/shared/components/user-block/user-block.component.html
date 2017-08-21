@@ -1,6 +1,5 @@
 <div class="user-block">
-
-  <div class="user-nav-link" *ngIf="!userData">
+  <div class="user-nav-link" *ngIf="!userData; else userDetails">
     <a class="link"
        routerLink="/sign-in"
        routerLinkActive="active"
@@ -11,13 +10,12 @@
        routerLinkActive="active"
     >Sign up</a>
   </div>
-  <div class="user-block-icons" *ngIf="userData">
-    <cart-icon-app></cart-icon-app>
-    <i class="material-icons">&#xE8A6;</i>
-    <span class="user-name"><span>User: </span> {{userData}}</span>
-
-    <i class="material-icons logOut" (click)="logOut()">exit_to_app</i>
-  </div>
-
-
+  <ng-template #userDetails>
+    <div class="user-block-icons">
+      <cart-icon-app></cart-icon-app>
+      <i class="material-icons">&#xE8A6;</i>
+      <span class="user-name"><span>User: </span> {{userData}}</span>
+      <i class="material-icons logOut" (click)="logOut()">exit_to_app</i>
+    </div>
+  </ng-template>
 </div>

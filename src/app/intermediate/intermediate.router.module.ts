@@ -14,8 +14,8 @@ import { CartComponent } from '../cart/cart.component';
       {
         path: 'cart',
         pathMatch: 'full',
-        component: CartComponent, /*anather component*/
-       /* canActivate: [AuthGuard],*/
+        component: CartComponent,
+        canActivate: [AuthGuard],
       },
     ])
   ],

@@ -14,7 +14,6 @@ import { CartModule } from '../cart/cart.module';
 import { CartService } from './services/cart.service';
 import { CartStatCountService } from './services/cart-stat-count.service';
 import { ApiStorageService } from './services/api-storage.service';
-import { CloseCartDirective } from './directives/close-cart.directive';
 
 @NgModule({
   imports: [
@@ -35,7 +34,6 @@ import { CloseCartDirective } from './directives/close-cart.directive';
     UserBlockComponent,
     FooterComponent,
     ValidationComponent,
-    CloseCartDirective
   ],
   providers: [
     StorageService,

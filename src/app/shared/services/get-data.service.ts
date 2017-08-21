@@ -25,7 +25,6 @@ export class GetDataService {
         let res: [any] = response.json();
         let result: Product[] = [];
         res.forEach((item) => {
-          console.log(item);
           let a = new Product(item.title, item.id, item.img, item.text);
           result.push(a);
         });
@@ -39,7 +38,6 @@ export class GetDataService {
         let result = res.json();
         for (let obj of result) {
           if (+obj.id === +id) {
-            console.log('+obj.id === +id^^^^^^^^^^', obj)
             return new Product(obj.title, obj.id, obj.img, obj.text);;
           }
         }

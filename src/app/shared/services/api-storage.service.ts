@@ -24,10 +24,6 @@ export class ApiStorageService {
   }
 
   public getAllCart(): Promise<CartProductModel[]> {
-    console.log('+++++++', this.cart);
-
-    console.log('+++++++', this.cart);
-
     return this.setPromise(this.cart);
   }
 
