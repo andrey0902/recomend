@@ -13,7 +13,7 @@ import { CartService } from '../../shared/services/cart.service';
 })
 export class CartIconComponent implements OnInit, OnDestroy {
   public uniqueCount: number;
-  private isSubscrib;
+  private isSubscribe;
   constructor(
     private cartService: CartService,
     private cartStatCountService: CartStatCountService) {
@@ -21,14 +21,14 @@ export class CartIconComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     this.getProduct();
-    this.isSubscrib = this.cartStatCountService.state.subscribe((e) => {
+    this.isSubscribe = this.cartStatCountService.state.subscribe((e) => {
       this.getProduct();
     });
   }
   public ngOnDestroy() {
-    this.isSubscrib.unsubscribe();
+    this.isSubscribe.unsubscribe();
   }
-  private getProduct() {
+  public getProduct() {
     this.cartService.getCart().then((res) => {
       this.cartService.unique().then((result) => {
         this.uniqueCount = result;

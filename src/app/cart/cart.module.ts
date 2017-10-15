@@ -8,9 +8,9 @@ import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MdButtonModule,
-  MdButtonToggleModule,
-  MdInputModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatInputModule,
 } from '@angular/material';
 import { AuthGuard } from './shared/authGuard.service';
 import { IntermediateRouterModule } from './intermediate.router.module';
@@ -25,10 +25,10 @@ import { ToggleClassDirective } from './shared/toggle-class.directive';
     CommonModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MdButtonModule,
+    MatButtonModule,
     RouterModule,
-    MdButtonToggleModule,
-    MdInputModule,
+    MatButtonToggleModule,
+    MatInputModule,
     HttpModule,
   ],
   exports: [

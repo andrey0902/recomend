@@ -18,4 +18,3 @@ import { HomeComponent } from './home.component';
   exports: [RouterModule]
 })
 export class HomeRouterModule {}
-

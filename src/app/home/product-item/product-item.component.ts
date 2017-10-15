@@ -13,14 +13,11 @@ import { MyAuthService } from '../../core/my-auth.service';
 })
 export class ProductItemComponent implements Input, OnInit, OnDestroy {
   public isLogin: boolean;
-  private isSubscribe;
-
   public get pathImg() {
     return settings.defaultHttp + 'static/';
   }
-
   @Input() public item: Product;
-
+  private isSubscribe;
   constructor(private cartService: CartService,
               private cartStatCountService: CartStatCountService,
               private myAuthService: MyAuthService) {

@@ -26,4 +26,3 @@ import { NoContentComponent } from './no-content/no-content.component';
   exports: [RouterModule]
 })
 export class AppRouterModule {}
-

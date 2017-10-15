@@ -12,7 +12,7 @@ import { ProductDetailResolveService } from './description/shared/product-detail
 import { ReviewsListComponent } from './reviews-list/reviews-list.component';
 import { ReviewsItemComponent } from './review-item/reviews-item.component';
 import { FormReviewComponent } from './form-review/form-review.component';
-import { MdCardModule, MdButtonModule } from '@angular/material';
+import { MatCardModule, MatButtonModule } from '@angular/material';
 import { ReviewStateService } from './shared/review-state.service';
 import { SharedModule } from '../shared/shared.module';
 
@@ -24,8 +24,8 @@ import { SharedModule } from '../shared/shared.module';
     NgbModule,
     SharedModule,
     BrowserAnimationsModule,
-    MdCardModule,
-    MdButtonModule,
+    MatCardModule,
+    MatButtonModule,
     ProductDetailsRouterModule
   ],
   exports: [],

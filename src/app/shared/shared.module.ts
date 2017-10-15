@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdIconModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
 import { UserBlockComponent } from './components/user-block/user-block.component';
 import { StorageService } from './services/storage.service';
 import { GetDataService } from './services/get-data.service';
@@ -21,7 +21,7 @@ import { ApiStorageService } from './services/api-storage.service';
     RouterModule,
     CartModule,
     BrowserAnimationsModule,
-    MdIconModule,
+    MatIconModule,
   ],
   exports: [
     HeaderComponent,

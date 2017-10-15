@@ -9,7 +9,11 @@ import { HomeRouterModule } from './home-router.module';
 import { HomeComponent } from './home.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCheckboxModule, MdCardModule,  MdIconModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatCardModule,
+  MatIconModule } from '@angular/material';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { SharedModule } from '../shared/shared.module';
@@ -21,10 +25,10 @@ import { GetDataService } from '../shared/services/get-data.service';
     HomeRouterModule,
    /* SharedModule,*/
     BrowserAnimationsModule,
-    MdButtonModule,
-    MdCheckboxModule,
-    MdIconModule,
-    MdCardModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatCardModule,
     HttpModule
   ],
   exports: [],

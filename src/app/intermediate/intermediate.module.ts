@@ -7,9 +7,9 @@ import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MdButtonModule,
-  MdButtonToggleModule,
-  MdInputModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatInputModule,
 } from '@angular/material';
 import { SharedModule } from '../shared/shared.module';
 import { AuthGuard } from './shared/authGuard.service';
@@ -23,9 +23,9 @@ import { CartModule } from '../cart/cart.module';
     SharedModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MdButtonModule,
-    MdButtonToggleModule,
-    MdInputModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatInputModule,
     IntermediateRouterModule,
     HttpModule,
   ],

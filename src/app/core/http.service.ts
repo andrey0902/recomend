@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Request, RequestOptionsArgs, Response, Headers, ConnectionBackend } from '@angular/http';
+import {
+  Http,
+  RequestOptions,
+  Request,
+  RequestOptionsArgs,
+  Response,
+  Headers,
+  ConnectionBackend } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
